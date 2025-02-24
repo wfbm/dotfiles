@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/william/.zsh/completions:"* ]]; then export FPATH="/home/william/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -112,7 +114,19 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
+export ANDROID_HOME=$HOME/Android/Sdk
+
 if [[ -z "$TMUX" ]]; then
   exec tmux
 fi
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# bun completions
+[ -s "/home/william/.bun/_bun" ] && source "/home/william/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+. ~/dev/tools/z-master/z.sh
+. "/home/william/.deno/env"alias config='/usr/bin/git --git-dir=/home/william/.cfg/ --work-tree=/home/william'
